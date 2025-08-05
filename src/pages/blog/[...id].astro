@@ -226,23 +226,58 @@ const tocSections = await getTOCSections(currentPostId)
     <article class="prose col-start-2 max-w-none">
       <Content />
 
-      <hr>
-
-      <script src="https://giscus.app/client.js"
-        data-repo="gper00/blog-comments"
-        data-repo-id="R_kgDONr94rA"
-        data-category="General"
-        data-category-id="DIC_kwDONr94rM4CmIHN"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark"
-        data-lang="id"
-        crossorigin="anonymous"
-        async>
-      </script>
+      <div class="my-10 border-t pt-10 border-neutral-200 dark:border-neutral-700">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="gper00/blog-comments"
+          data-repo-id="R_kgDONr94rA"
+          data-category="General"
+          data-category-id="DIC_kwDONr94rM4CmIHN"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="noborder_light"
+          data-lang="id"
+          crossorigin="anonymous"
+          async
+        ></script>
+        <script is:inline>
+          function setTheme() {
+            const giscusScript = document.querySelector('script[src^="https://giscus.app/client.js"]');
+            if (!giscusScript) return;
+        
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'noborder_dark' : 'noborder_light';
+        
+            const message = {
+              setConfig: {
+                theme: theme,
+              },
+            };
+        
+            const giscusIframe = document.querySelector('iframe.giscus-frame');
+            if (giscusIframe && giscusIframe.contentWindow) {
+              giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+            }
+          }
+        
+          // Set theme on page load
+          setTheme();
+        
+          // Set theme when theme changes
+          const observer = new MutationObserver(setTheme);
+          observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme'],
+          });
+        
+          // Clean up observer on page unload
+          document.addEventListener('astro:before-swap', () => {
+            observer.disconnect();
+          });
+        </script>
+      </div>
     </article>
 
     {

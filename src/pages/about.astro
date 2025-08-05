@@ -16,31 +16,25 @@ const projects = await getAllProjects()
   <section>
     <div class="min-w-full">
       <div class="prose mb-8">
-        <p class="mt-0">
-          astro-erudite is an opinionated, unstyled static blogging template
-          that prioritizes simplicity and performance, built with <Link
-            href="https://astro.build"
-            external
-            underline>Astro</Link
-          >, <Link href="https://tailwindcss.com" external underline
-            >Tailwind</Link
-          >, and <Link href="https://ui.shadcn.com" external underline
-            >shadcn/ui</Link
-          >. It provides a clean foundation for your content while being
-          extremely easy to customize.
-        </p>
-        <p>
-          To learn more about the philosophy behind this template, check out the
-          following blog post: <Link
-            href="/blog/the-state-of-static-blogs"
-            underline>The State of Static Blogs in 2024</Link
-          >.
-        </p>
-      </div>
+        <!-- <h2 class="mb-4 text-2xl font-medium">About lospipell</h2> -->
 
-      <h2 class="mb-4 text-2xl font-medium">Example Projects Listing</h2>
-      <div class="flex flex-col gap-4">
-        {projects.map((project) => <ProjectCard project={project} />)}
+        <p class="mt-0">
+          <strong>lospipell</strong> adalah ruang yang lahir dari kebutuhan untuk menuliskan hal-hal yang tak selalu mudah diucapkan. Di sini, tulisan menjadi medium untuk merenung, memahami, dan terkadang hanya untuk merasa tidak sendirian.
+        </p>
+
+        <p>
+          Blog ini berisi catatan tentang kehidupan, pemikiran-pemikiran yang muncul di tengah malam, pertanyaan yang belum tentu ada jawabannya, dan juga hal-hal teknis yang kebetulan ingin saya dibagikan seperti pemrograman atau lainnya terkait teknologi. Kadang personal, kadang informatif, kadang keduanya.
+        </p>
+
+        <p>
+          Nama <strong>lospipell</strong> sendiri adalah plesetan dari “lost people” — mewakili perasaan yang mungkin pernah (atau masih) dirasakan banyak orang: merasa tersesat, mencari arah, mencoba mengerti hidup, dan terus belajar di tengah semua itu.
+        </p>
+
+        <p>
+          Setiap orang sedang mencari sesuatu — jawaban, arah, atau makna.
+          Mungkin kamu juga. Dan meski blog ini bukan peta, semoga ia bisa jadi penunjuk kecil di tengah perjalananmu.
+          Selamat datang di <strong>lospipell</strong>.
+        </p>
       </div>
     </div>
   </section>
