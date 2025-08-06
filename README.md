@@ -74,7 +74,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-<!-- Built with ♥ by [lospipell](https://lospipell.vercel.app)!
+<!-- Built with ♥ by [lospipell](https://lospipell.pages.dev)!
 
 [License]: https://img.shields.io/github/license/gper00/astro-blog?color=0a0a0a&logo=github&logoColor=fff&style=for-the-badge -->
 
