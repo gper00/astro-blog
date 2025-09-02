@@ -1,210 +1,51 @@
 ---
-title: 'Belajar Java #1: Setup di VSCode dan Dasar-Dasar Java'
-description: "Panduan buat yang baru mau belajar Java: mulai dari instalasi JDK, setup di VSCode, sampai ngoding program sederhana. Cocok buat pemula yang pengen masuk dunia algoritma dan struktur data."
-tags: ["Java", "Pemrograman", "Belajar Java", "Algoritma dan Struktur Data", "VSCode", "Programming Pemula"]
+title: "Belajar Algoritma & Struktur Data dengan Java"
+description: "Pendekatan sistematis untuk memahami algoritma dan struktur data dengan Java. Artikel ini menjadi pengantar sekaligus peta jalan belajar dari instalasi hingga graph."
+tags: ["Java", "Algoritma dan Struktur Data", "Struktur Data", "Pemrograman"]
 date: 2025-09-03
 authors: ['umamalfarizi']
 ---
 
-## Kenapa Belajar Java?
+# Belajar Algoritma & Struktur Data dengan Java
 
-Karena itu **Koentji** hahahaha.
-Java itu salah satu bahasa pemrograman yang udah lama banget eksis, tapi masih dipakai sampai sekarang. Banyak aplikasi besar yang dibangun dengan Java, mulai dari aplikasi Android, sistem backend bank, sampai platform e-commerce.
+Bagi banyak mahasiswa, perjalanan belajar algoritma dan struktur data biasanya dimulai dengan **C atau C++**. Bahasa itu memang sering dijadikan dasar karena dekat dengan konsep memori, pointer, dan performa.
 
-Kalau kamu bisa Java, rasanya kayak punya kunci yang bisa buka banyak pintu di dunia programming. Jadi, selain jadi pondasi buat belajar bahasa lain, Java juga bikin kamu gampang paham konsep penting kayak OOP (*Object-Oriented Programming*).
-
-## Instalasi Java & Setup VSCode
-
-Sebelum ngoding, kita butuh “alat tempur” dulu. Ada dua hal penting: **JDK** dan **VSCode**.
-
-### 1. Install Java JDK
-
-**JDK (Java Development Kit)** adalah paket yang isinya compiler (`javac`), runtime (`java`), dan tools lain biar kamu bisa bikin serta jalanin program Java.
-
-Langkah install:
-
-* Download JDK sesuai OS di [Oracle JDK](https://www.oracle.com/java/technologies/javase-downloads.html) atau pakai [OpenJDK](https://adoptium.net/).
-* Pilih sesuai OS: Windows, Linux, macOS.
-* Install dengan default setting (kalau pemula, nggak usah ubah path dulu).
-
-**Cek instalasi:**
-
-```bash
-java -version
-javac -version
-```
-
-Kalau muncul versi Java, artinya udah beres ✅.
-Kalau error → biasanya masalah di **PATH environment**. Untuk Windows, pastikan folder `bin` JDK udah masuk di `Environment Variables`.
-
-### 2. Install & Setup VSCode
-
-1. Download [Visual Studio Code](https://code.visualstudio.com/).
-2. Install extension **Java Extension Pack** (biar ada IntelliSense, debugger, dll).
-3. Buka VSCode → bikin file baru `Main.java`.
-4. Coba tulis kode sederhana dan run.
-
-> Tips: Kalau di Linux, kadang butuh install plugin tambahan atau set PATH biar VSCode bisa detect JDK.
+Namun, dalam praktik modern, Java menjadi salah satu bahasa populer untuk mempelajari **algoritma dan struktur data**. Java relatif lebih aman (tidak perlu berurusan langsung dengan pointer mentah), sintaksnya rapi, dan digunakan luas dalam dunia kerja. Karena itu, kita akan melanjutkan perjalanan memahami algoritma dan struktur data dengan Java.
 
 ---
 
-## Struktur Dasar Program Java
+## Mengapa Algoritma dan Struktur Data Penting?
+Algoritma dan struktur data adalah fondasi dalam ilmu komputer.
 
-Mari kita bikin program paling klasik di dunia programming: **Hello, World!**
+- **Algoritma**: langkah-langkah logis untuk menyelesaikan masalah.
+- **Struktur data**: cara menyimpan dan mengatur data agar algoritma bisa bekerja efektif.
 
-```java
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, Java!");
-    }
-}
-```
-
-### Penjelasan Baris per Baris
-
-* `public class Main`
-
-  * `class` → keyword untuk bikin kelas (semacam blueprint program).
-  * `Main` → nama class, **harus sama persis** dengan nama file (`Main.java`).
-  * Kenapa huruf besar? → Konvensi Java: nama class pakai **PascalCase**. Kalau beda huruf, compiler bakal error.
-
-* `{ }` → curly braces, dipakai untuk menandai blok kode. Java *case-sensitive* dan juga *brace-sensitive*, jadi jangan sampai salah taruh kurawal.
-
-* `public static void main(String[] args)`
-
-  * `public` → method bisa diakses dari mana aja.
-  * `static` → method bisa dipanggil tanpa harus bikin object.
-  * `void` → method ini nggak mengembalikan nilai apapun.
-  * `main` → entry point, wajib ada di program Java biar bisa jalan.
-  * `String[] args` → parameter untuk ambil argumen dari command line (walaupun sering nggak kepake buat pemula).
-
-* `System.out.println("Hello, Java!");`
-
-  * `System` → class bawaan Java.
-  * `out` → object output standar (biasanya layar/console).
-  * `println()` → method buat cetak teks + enter. Kalau `print()` aja, nggak pakai enter.
-
-### Catatan Penting untuk Pemula
-
-* **Case-sensitive**: `Main` beda dengan `main`. Kalau salah ketik, error.
-* **Komentar**:
-
-  ```java
-  // Ini komentar 1 baris
-  /* Ini komentar
-     lebih dari satu baris */
-  ```
-* **Indentasi**: bukan wajib, tapi bikin kode lebih rapi dan gampang dibaca.
-
-### Output:
-
-```bash
-Hello, Java!
-```
+Tanpa pemahaman keduanya, program hanya akan jadi kumpulan kode yang sulit dioptimalkan dan sulit dikembangkan.
 
 ---
 
-## Variabel & Tipe Data
+## Peta Modul
+Dalam seri ini, pembahasan akan dibagi menjadi enam modul utama:
 
-Variabel itu kayak “kotak” buat nyimpen data. Kita kasih nama, lalu isi dengan nilai tertentu.
+1. [Instalasi, Konfigurasi, dan Dasar Java](./modul-1-dasar-java)
+2. [Linked List dan Variasinya (SLL, DLL, Circular)](./modul-2-linked-list)
+3. [Stack dan Queue](./modul-3-stack-queue)
+4. [Sorting dan Searching](./modul-4-sorting-searching)
+5. [Tree](./modul-5-tree)
+6. [Graph](./modul-6-graph)
 
-Contoh:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        int umur = 27;
-        double tinggi = 1.75;
-        boolean mahasiswa = true;
-        String nama = "Umam";
-
-        System.out.println("Halo, nama saya " + nama + ", umur " + umur + " tahun.");
-    }
-}
-```
-
-**Output:**
-
-```
-Halo, nama saya Umam, umur 27 tahun.
-```
-
-### Tipe Data Dasar
-
-* `int` → bilangan bulat
-* `double` → bilangan desimal
-* `boolean` → true/false
-* `char` → 1 huruf/karakter
-* `String` → kumpulan karakter
+Setiap modul dirancang agar saling berhubungan, mulai dari dasar hingga struktur yang lebih kompleks.
 
 ---
 
-## Percabangan & Perulangan
-
-Supaya programmu bisa “ngambil keputusan” atau ngulangin tugas tertentu, kita butuh percabangan & perulangan.
-
-### If-Else
-
-```java
-int nilai = 75;
-
-if (nilai >= 80) {
-    System.out.println("Lulus dengan nilai bagus!");
-} else {
-    System.out.println("Lulus, tapi bisa lebih baik lagi.");
-}
-```
-
-### For Loop
-
-```java
-for (int i = 1; i <= 5; i++) {
-    System.out.println("Iterasi ke-" + i);
-}
-```
+## Cara Mengikuti
+- Ikuti urutan modul dari awal hingga akhir.
+- Praktikkan langsung dengan mengetik ulang kode, jangan hanya membaca.
+- Perhatikan hubungan antar konsep (misalnya bagaimana array mendasari linked list, atau bagaimana tree berhubungan dengan graph).
 
 ---
 
-## OOP (Sedikit Bocoran)
+## Penutup
+Seri ini ditujukan bagi yang sudah mengenal pemrograman dasar (misalnya dengan C++), dan ingin memperdalam pemahaman algoritma dan struktur data dengan Java.
 
-Java itu bahasa yang **Object-Oriented Programming**. Intinya, kita bikin class, lalu dari class itu kita buat object.
-
-Contoh sederhana:
-
-```java
-class Mobil {
-    String merek;
-    int tahun;
-
-    void info() {
-        System.out.println("Mobil " + merek + ", tahun " + tahun);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Mobil m1 = new Mobil();
-        m1.merek = "Toyota";
-        m1.tahun = 2020;
-        m1.info();
-    }
-}
-```
-
-**Output:**
-
-```
-Mobil Toyota, tahun 2020
-```
-
----
-
-👉 Sampai sini kamu udah kenalan sama:
-
-* Cara install Java & VSCode
-* Struktur dasar program
-* Variabel & tipe data
-* Percabangan & perulangan
-* Bocoran tentang OOP
-
-Di modul selanjutnya, kita bakal masuk ke materi yang lebih “berat” kayak **Linked List, Stack, Queue**. Jadi pastikan kamu udah lancar bagian dasar ini dulu 🔥.
+Mari kita mulai dari pondasi: **instalasi dan dasar Java** di [Modul 1](./modul-1-dasar-java).
