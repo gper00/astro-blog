@@ -1,0 +1,230 @@
+---
+title: "#1 Linked List dan Variasinya"
+description: "Pembahasan lengkap tentang struktur data Linked List dengan Java. Mulai dari konsep node, implementasi Single Linked List, Double Linked List, hingga Circular Linked List."
+tags: ["Java", "Linked List", "Algoritma dan Struktur Data", "Struktur Data"]
+date: 2025-09-03
+authors: ['umamalfarizi']
+order: 1
+---
+
+Setelah memahami dasar Java, sekarang kita masuk ke salah satu struktur data fundamental: **Linked List**.
+
+Jika sebelumnya di C++ kita sering berurusan dengan **pointer**, di Java konsep ini diterapkan lewat **referensi objek**. Jadi idenya tetap sama: setiap elemen (*node*) menyimpan data sekaligus penunjuk ke node berikutnya.
+
+---
+
+## Konsep Dasar Linked List
+Linked List adalah kumpulan node yang saling terhubung. Setiap node umumnya memiliki:
+- **data** → nilai yang disimpan
+- **next** → referensi ke node berikutnya
+
+Keunggulan dibanding array:
+- Ukuran dinamis (tidak perlu mendefinisikan panjang dari awal)
+- Insert dan delete lebih fleksibel
+
+Kelemahan:
+- Akses acak sulit (harus traversal dari awal)
+
+---
+
+## Implementasi Node
+Kita mulai dengan class sederhana `Node`:
+
+```java
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+````
+
+---
+
+## Single Linked List (SLL)
+
+Implementasi dasar Linked List:
+
+```java
+class LinkedList {
+    Node head;
+
+    // Tambah di akhir
+    void addLast(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
+    // Cetak isi list
+    void printList() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+
+        list.printList();
+    }
+}
+```
+
+Output:
+
+```
+10 -> 20 -> 30 -> null
+```
+
+---
+
+## Double Linked List (DLL)
+
+Di Double Linked List, tiap node menyimpan **prev** dan **next**.
+
+```java
+class NodeDLL {
+    int data;
+    NodeDLL prev, next;
+
+    NodeDLL(int data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
+}
+```
+
+Implementasi dasar DLL:
+
+```java
+class DoublyLinkedList {
+    NodeDLL head;
+
+    void addFirst(int data) {
+        NodeDLL newNode = new NodeDLL(data);
+        if (head != null) {
+            head.prev = newNode;
+            newNode.next = head;
+        }
+        head = newNode;
+    }
+
+    void printList() {
+        NodeDLL current = head;
+        while (current != null) {
+            System.out.print(current.data + " <-> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList dll = new DoublyLinkedList();
+        dll.addFirst(10);
+        dll.addFirst(20);
+        dll.addFirst(30);
+
+        dll.printList();
+    }
+}
+```
+
+Output:
+
+```
+30 <-> 20 <-> 10 <-> null
+```
+
+---
+
+## Circular Linked List
+
+Di Circular Linked List, node terakhir menunjuk kembali ke node pertama.
+
+```java
+class CircularLinkedList {
+    Node head;
+
+    void add(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            newNode.next = head;
+            return;
+        }
+        Node current = head;
+        while (current.next != head) {
+            current = current.next;
+        }
+        current.next = newNode;
+        newNode.next = head;
+    }
+
+    void printList(int n) {
+        Node current = head;
+        int count = 0;
+        while (current != null && count < n) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+            count++;
+        }
+        System.out.println("...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CircularLinkedList cll = new CircularLinkedList();
+        cll.add(1);
+        cll.add(2);
+        cll.add(3);
+
+        cll.printList(6); // mencetak 6 node untuk menunjukkan circular
+    }
+}
+```
+
+Output:
+
+```
+1 -> 2 -> 3 -> 1 -> 2 -> 3 -> ...
+```
+
+---
+
+## Penutup Modul 2
+
+Di modul ini kita sudah membahas:
+
+- Konsep dasar Linked List
+
+- Implementasi Single Linked List
+
+- Implementasi Double Linked List
+
+- Implementasi Circular Linked List
+
+
+Linked List menjadi pondasi untuk memahami struktur data lain seperti **stack** dan **queue** yang akan kita bahas di modul berikutnya.
