@@ -1,0 +1,193 @@
+---
+title: 'Belajar Dasar Java & Setup di VSCode'
+description: 'Belajar Dasar Java & Setup di VSCode'
+date: 2025-09-03
+authors: ['umamalfarizi']
+---
+
+## Kenapa Harus Belajar Java?
+
+Java itu salah satu bahasa pemrograman yang udah lama banget eksis, tapi masih dipakai sampai sekarang. Banyak aplikasi besar yang dibangun dengan Java, mulai dari aplikasi Android, sistem backend bank, sampai platform e-commerce.
+
+Kalau Java itu manusia, mungkin dia udah jadi **"senior developer"** yang punya pengalaman di mana-mana. Jadi, kalau kamu bisa Java, skillmu bisa dipakai di banyak bidang. Mantap, kan?
+
+---
+
+## Instalasi Java & Setup VSCode
+
+Oke, sebelum ngoding kita butuh “alat tempur” dulu. Jangan sampai kamu udah semangat ngoding, eh ternyata belum ada JDK di laptop. 😅
+
+### 1. Install Java JDK
+
+- Download [Java JDK](https://www.oracle.com/java/technologies/downloads/) (pilih sesuai OS kamu).
+
+- Install seperti biasa (next-next-finish aja).
+
+- Cek instalasi lewat terminal/command prompt:
+
+
+```bash
+java -version
+```
+
+Kalau muncul versi Java, berarti sukses. 🎉
+
+### 2. Setup di VSCode
+
+- Download [Visual Studio Code](https://code.visualstudio.com/).
+
+- Install **Extension: Java Extension Pack**.
+
+- Bikin folder project → buka di VSCode → bikin file `Main.java`.
+
+
+---
+
+## Struktur Dasar Program Java
+
+Program Java itu biasanya punya struktur kayak gini:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}
+```
+
+Penjelasan singkat:
+
+- `public class Main` → bikin class dengan nama `Main`.
+
+- `public static void main(String[] args)` → titik masuk program.
+
+- `System.out.println("Hello, Java!");` → cetak teks ke layar.
+
+
+Coba jalankan, kalau berhasil harusnya keluar tulisan:
+
+```
+Hello, Java!
+```
+
+---
+
+## Variabel & Tipe Data
+
+Variabel itu kayak "kotak" tempat nyimpen data.
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int umur = 22;
+        String nama = "Umam";
+        double ipk = 3.75;
+
+        System.out.println("Halo, nama saya " + nama + ", umur " + umur + " tahun, IPK " + ipk);
+    }
+}
+```
+
+Outputnya:
+
+```
+Halo, nama saya Umam, umur 22 tahun, IPK 3.75
+```
+
+### Beberapa tipe data yang sering dipakai:
+
+- `int` → bilangan bulat
+
+- `double` → bilangan desimal
+
+- `boolean` → true/false
+
+- `char` → karakter tunggal
+
+- `String` → teks
+
+
+---
+
+## Percabangan & Perulangan
+
+Supaya programmu bisa “ngambil keputusan” atau ngulang, kita butuh percabangan & perulangan.
+
+### If-Else
+
+```java
+int nilai = 85;
+
+if (nilai >= 75) {
+    System.out.println("Lulus 🎉");
+} else {
+    System.out.println("Coba lagi tahun depan 😅");
+}
+```
+
+### For Loop
+
+```java
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Perulangan ke-" + i);
+}
+```
+
+---
+
+## OOP (Sedikit Bocoran)
+
+Java itu bahasa yang **Object-Oriented Programming (OOP)**.
+Artinya, kita bisa bikin class dan object untuk nge-model dunia nyata.
+
+```java
+class Mobil {
+    String merk;
+    int tahun;
+
+    Mobil(String m, int t) {
+        merk = m;
+        tahun = t;
+    }
+
+    void info() {
+        System.out.println("Mobil: " + merk + ", Tahun: " + tahun);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Mobil m1 = new Mobil("Toyota", 2020);
+        m1.info();
+    }
+}
+```
+
+Output:
+
+```
+Mobil: Toyota, Tahun: 2020
+```
+
+Nggak usah khawatir kalau masih bingung, nanti kita bakal kupas lebih dalam pas modul-modul selanjutnya. 😉
+
+---
+
+## Penutup
+
+Nah, itu tadi dasar-dasar Java buat pemanasan sebelum masuk ke struktur data yang lebih “berotot” kayak linked list, stack, atau tree.
+
+Intinya, kuasai dulu:
+
+- Struktur program
+
+- Variabel & tipe data
+
+- Percabangan & perulangan
+
+- Dasar OOP
+
+
+Bayangin aja Java ini kayak belajar main gitar. Awalnya jari sakit, suara fals, tapi lama-lama bisa main lagu favorit. Sama juga, ngoding Java butuh latihan biar lancar. 🎸💻
