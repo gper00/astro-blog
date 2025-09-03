@@ -7,28 +7,28 @@ authors: ['umamalfarizi']
 order: 1
 ---
 
-Setelah memahami dasar Java, sekarang kita masuk ke salah satu struktur data fundamental: **Linked List**.
+Setelah pemanasan dengan dasar-dasar Java, sekarang kita masuk ke salah satu struktur data yang paling fundamental, yaitu **Linked List**.
 
-Jika sebelumnya di C++ kita sering berurusan dengan **pointer**, di Java konsep ini diterapkan lewat **referensi objek**. Jadi idenya tetap sama: setiap elemen (*node*) menyimpan data sekaligus penunjuk ke node berikutnya.
-
----
+Gampangnya, bayangin aja Linked List itu kayak rangkaian gerbong kereta. Setiap gerbong (kita sebut *node*) bawa muatan (*data*) dan punya sambungan ke gerbong di belakangnya (*next*). Konsepnya mirip kayak *pointer* di C++, tapi di Java kita pakainya **referensi objek** buat nyambungin antar gerbongnya.
 
 ## Konsep Dasar Linked List
-Linked List adalah kumpulan node yang saling terhubung. Setiap node umumnya memiliki:
-- **data** → nilai yang disimpan
-- **next** → referensi ke node berikutnya
 
-Keunggulan dibanding array:
-- Ukuran dinamis (tidak perlu mendefinisikan panjang dari awal)
-- Insert dan delete lebih fleksibel
+Jadi, Linked List itu kumpulan node yang saling nyambung. Setiap node itu minimal punya dua hal: **data** yang disimpen, dan **next** yang jadi penunjuk ke node selanjutnya.
 
-Kelemahan:
-- Akses acak sulit (harus traversal dari awal)
+```text
+  [ Head ]
+     | 
+     v
++------+------+   +------+------+   +------+------+
+| Data | Next |-->| Data | Next |-->| Data | Next |--> null
++------+------+   +------+------+   +------+------+
+```
 
----
+Beda sama Array yang ukurannya harus ditentuin di awal, Linked List ini lebih fleksibel. Kita bisa nambah atau hapus data dengan gampang tanpa harus geser-geser elemen lain, cukup dengan ngubah sambungannya aja. Tapi, kekurangannya, kita nggak bisa langsung akses data di tengah. Kalau mau cari data ke-10, ya kita harus jalan dari gerbong paling depan satu per satu.
 
-## Implementasi Node
-Kita mulai dengan class sederhana `Node`:
+## Bikin Cetakan Gerbong (Node)
+
+Pertama, kita bikin dulu `class` buat `Node`-nya. Ini cetakan buat semua gerbong yang bakal kita buat nanti.
 
 ```java
 class Node {
@@ -40,19 +40,16 @@ class Node {
         this.next = null;
     }
 }
-````
+```
 
----
+## 1. Single Linked List (SLL)
 
-## Single Linked List (SLL)
-
-Implementasi dasar Linked List:
+Ini jenis Linked List yang paling dasar. Setiap gerbong cuma punya satu sambungan, yaitu ke gerbong berikutnya.
 
 ```java
 class LinkedList {
     Node head;
 
-    // Tambah di akhir
     void addLast(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -66,7 +63,6 @@ class LinkedList {
         current.next = newNode;
     }
 
-    // Cetak isi list
     void printList() {
         Node current = head;
         while (current != null) {
@@ -84,22 +80,14 @@ public class Main {
         list.addLast(20);
         list.addLast(30);
 
-        list.printList();
+        list.printList(); // Output: 10 -> 20 -> 30 -> null
     }
 }
 ```
 
-Output:
+## 2. Double Linked List (DLL)
 
-```
-10 -> 20 -> 30 -> null
-```
-
----
-
-## Double Linked List (DLL)
-
-Di Double Linked List, tiap node menyimpan **prev** dan **next**.
+Nah, kalau di Double Linked List, gerbongnya lebih canggih. Selain punya sambungan ke gerbong belakang (`next`), dia juga punya sambungan ke gerbong depan (`prev`). Jadi kita bisa jalan-jalan maju-mundur di sepanjang rangkaian.
 
 ```java
 class NodeDLL {
@@ -108,15 +96,9 @@ class NodeDLL {
 
     NodeDLL(int data) {
         this.data = data;
-        this.prev = null;
-        this.next = null;
     }
 }
-```
 
-Implementasi dasar DLL:
-
-```java
 class DoublyLinkedList {
     NodeDLL head;
 
@@ -138,30 +120,12 @@ class DoublyLinkedList {
         System.out.println("null");
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        DoublyLinkedList dll = new DoublyLinkedList();
-        dll.addFirst(10);
-        dll.addFirst(20);
-        dll.addFirst(30);
-
-        dll.printList();
-    }
-}
 ```
+Kalau dicoba, hasilnya bakal nunjukkin `30 <-> 20 <-> 10 <-> null` karena kita nambahinnya dari depan terus.
 
-Output:
+## 3. Circular Linked List
 
-```
-30 <-> 20 <-> 10 <-> null
-```
-
----
-
-## Circular Linked List
-
-Di Circular Linked List, node terakhir menunjuk kembali ke node pertama.
+Ini jenis yang unik. Gerbong paling belakang itu nggak berhenti di `null`, tapi nyambung lagi ke gerbong paling depan (`head`). Jadi kayak lingkaran, nggak ada ujungnya. Berguna banget buat bikin playlist lagu yang muter terus atau buat sistem antrean yang bergiliran.
 
 ```java
 class CircularLinkedList {
@@ -193,38 +157,9 @@ class CircularLinkedList {
         System.out.println("...");
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        CircularLinkedList cll = new CircularLinkedList();
-        cll.add(1);
-        cll.add(2);
-        cll.add(3);
-
-        cll.printList(6); // mencetak 6 node untuk menunjukkan circular
-    }
-}
 ```
-
-Output:
-
-```
-1 -> 2 -> 3 -> 1 -> 2 -> 3 -> ...
-```
-
----
+Kalau kita cetak beberapa kali, bakal kelihatan polanya muter terus, misalnya `1 -> 2 -> 3 -> 1 -> 2 -> 3 -> ...`
 
 ## Penutup Modul 1
 
-Di modul ini kita sudah membahas:
-
-- Konsep dasar Linked List
-
-- Implementasi Single Linked List
-
-- Implementasi Double Linked List
-
-- Implementasi Circular Linked List
-
-
-Linked List menjadi pondasi untuk memahami struktur data lain seperti **stack** dan **queue** yang akan kita bahas di modul berikutnya.
+Mantap! Kita udah ngulik soal Linked List, dari yang biasa, yang bisa maju-mundur, sampe yang muter-muter. Konsep ini penting banget, karena bakal jadi dasar buat ngertiin struktur data lain kayak **stack** dan **queue** yang bakal kita bahas di modul selanjutnya.

@@ -1,0 +1,156 @@
+---
+title: "#2 Stack dan Queue"
+description: "Mempelajari dua struktur data linear fundamental, Stack (LIFO) dan Queue (FIFO), dengan implementasi menggunakan Java dan Linked List."
+tags: ["Java", "Stack", "Queue", "Algoritma dan Struktur Data"]
+date: 2025-09-04
+authors: ['umamalfarizi']
+order: 2
+---
+
+Oke, lanjut ke modul dua! Setelah kita ngerti cara kerja `Linked List`, sekarang kita kenalan sama dua "saudaranya" yang super populer: **Stack** dan **Queue**.
+
+Keduanya ini bisa kita bikin pakai Array atau Linked List. Biar ilmunya nyambung, kita bakal pakai fondasi Linked List yang udah kita pelajari sebelumnya.
+
+## 1. Stack: Si Tumpukan Piring (LIFO)
+
+Bayangin aja kamu lagi numpuk piring. Piring yang terakhir kamu taruh di atas pasti jadi yang pertama kamu ambil kan? Nah, itu prinsip **LIFO (Last-In, First-Out)**.
+
+Stack itu persis kayak gitu. Elemen yang terakhir kita masukin (istilahnya di-`push`) bakal jadi yang pertama kita keluarin (di-`pop`). Kita juga bisa ngintip elemen paling atas tanpa ngambil, itu namanya `peek`.
+
+### Implementasi Stack pakai Linked List
+
+Kita bisa pakai `Node` dari modul sebelumnya. Logikanya simpel: `push` itu sama kayak nambahin elemen di kepala/depan list, dan `pop` itu ngambil elemen dari kepala list. Cepat dan efisien.
+
+```java
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class Stack {
+    private Node top;
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public void push(int data) {
+        Node newNode = new Node(data);
+        newNode.next = top;
+        top = newNode;
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            throw new RuntimeException("Stack kosong, gabisa di-pop!");
+        }
+        int data = top.data;
+        top = top.next;
+        return data;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("Stack kosong, gaada yang bisa diintip!");
+        }
+        return top.data;
+    }
+}
+```
+
+**Contoh Pakainya:**
+```java
+public class Main {
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println("Paling atas: " + stack.peek()); // 30
+        System.out.println("Yang di-pop: " + stack.pop()); // 30
+        System.out.println("Paling atas sekarang: " + stack.peek()); // 20
+    }
+}
+```
+
+## 2. Queue: Si Antrean Tiket (FIFO)
+
+Kalau Queue, bayanginnya kayak antrean di loket. Siapa yang datang duluan, dia yang dilayani duluan. Ini prinsip **FIFO (First-In, First-Out)**.
+
+Jadi, elemen yang pertama masuk ke antrean (istilahnya `enqueue`) bakal jadi yang pertama keluar juga (istilahnya `dequeue`).
+
+### Implementasi Queue pakai Linked List
+
+Biar efisien, kita butuh penanda buat elemen paling depan (`front`) dan paling belakang (`rear`).
+
+```java
+class Queue {
+    private Node front;
+    private Node rear;
+
+    public boolean isEmpty() {
+        return front == null;
+    }
+
+    public void enqueue(int data) {
+        Node newNode = new Node(data);
+        if (isEmpty()) {
+            front = newNode;
+        } else {
+            rear.next = newNode;
+        }
+        rear = newNode;
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            throw new RuntimeException("Antrean kosong!");
+        }
+        int data = front.data;
+        front = front.next;
+        if (front == null) {
+            rear = null;
+        }
+        return data;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("Antrean kosong!");
+        }
+        return front.data;
+    }
+}
+```
+
+**Contoh Pakainya:**
+```java
+public class Main {
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        System.out.println("Paling depan: " + queue.peek()); // 10
+        System.out.println("Yang keluar antrean: " + queue.dequeue()); // 10
+        System.out.println("Paling depan sekarang: " + queue.peek()); // 20
+    }
+}
+```
+
+## Jadi, Pakai yang Mana?
+
+Gampangnya gini, pakai **Stack** kalau urusannya kebalik-balik, kayak fitur "Undo" di teks editor atau riwayat halaman di browser. Pakai **Queue** kalau urusannya harus adil sesuai urutan kedatangan, contohnya antrean nge-print dokumen atau pesanan di ojek online.
+
+## Penutup Modul 2
+
+Sip! Sekarang kita udah ngerti bedanya tumpukan (Stack) dan antrean (Queue). Dua-duanya ini penting banget dan sering kepake.
+
+Di modul selanjutnya, kita bakal ngobrolin soal **Sorting dan Searching**, alias cara ngurutin dan nyari data. Sampai jumpa!

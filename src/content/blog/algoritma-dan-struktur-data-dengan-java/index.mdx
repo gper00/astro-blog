@@ -1,0 +1,127 @@
+---
+title: "Belajar Algoritma & Struktur Data dengan Java"
+description: "Pendekatan sistematis untuk memahami algoritma dan struktur data dengan Java. Dimulai dari instalasi, konfigurasi, hingga dasar-dasar Java sebelum masuk ke struktur data yang lebih kompleks."
+tags: ["programming", "code", "java"]
+date: 2025-09-03
+authors: ['umamalfarizi']
+image: './../default-banner.png'
+---
+
+Banyak mahasiswa biasanya mulai belajar **algoritma dan pemrograman** pakai **C atau C++**. Bahasa itu emang oke banget buat pondasi karena kita jadi kenal sama konsep memori dan pointer.
+
+Tapi, pada **algoritma dan struktur data**, kita coba pakai **Java** biar lebih relevan sama industri. Mengapa Java, karena Javva adalah **Koentji** 🗿. Di Java, kita nggak perlu pusing mikirin pointer mentah, jadi lebih aman. Sintaksnya juga lebih rapi dan banyak banget perusahaan yang pakai. Makanya, seri artikel ini bakal fokus ke Java.
+
+## Kenapa Sih Kita Perlu Belajar Ini?
+
+Algoritma dan struktur data itu ibarat fondasinya ilmu komputer. Kalau kita ngobrolin **algoritma**, itu tuh sebenernya cuma langkah-langkah logis buat nyelesaiin masalah. Anggap aja kayak resep masakan. Nah, kalau **struktur data**, itu cara kita nyimpen dan ngatur data biar algoritma tadi bisa jalan dengan efisien. Tanpa keduanya, program kita mungkin jalan, tapi ya gitu, nggak efisien dan susah buat dikembangin lagi.
+
+## Peta Belajar Kita
+
+Pembahasan di seri ini bakal dibagi jadi lima modul utama:
+
+1.  Linked List
+2.  Stack dan Queue
+3.  Sorting dan Searching
+4.  Tree
+5.  Graph
+
+## Persiapan Wajib: Instalasi & Dasar Java
+
+Sebelum kita masuk ke materi berat, pastiin dulu lingkungan kita udah siap dan kita udah kenal dikit sama dasar-dasar Java.
+
+### Instalasi Java JDK
+Gampangnya, ikutin aja langkah ini:
+1.  Unduh [Java JDK](https://www.oracle.com/java/technologies/downloads/) yang cocok buat OS kamu.
+2.  Install kayak biasa, tinggal next-next aja.
+3.  Buka terminal, terus ketik `java -version`. Kalau muncul versinya, berarti aman.
+
+### Setup di VSCode
+1.  Download [Visual Studio Code](https://code.visualstudio.com/).
+2.  Di bagian Extensions, cari dan install **Java Extension Pack**.
+3.  Bikin folder proyek, buka di VSCode, terus bikin file baru namanya `Main.java`.
+
+### Struktur Program Java
+
+Program Java itu punya "rumah" yang namanya `class`. Terus, pintu masuk utamanya itu ada di method `main`.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}
+```
+Nanti kalau dijalanin, bakal muncul tulisan `Hello, Java!`.
+
+### Variabel dan Tipe Data
+
+Variabel itu kayak kotak buat nyimpen data. Di Java, ada beberapa tipe data dasar yang sering banget kita pakai, misalnya `int` buat angka bulat, `double` buat angka desimal, `boolean` buat nilai `true` atau `false`, dan `String` buat teks.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int umur = 12;
+        String nama = "Umam";
+        double ipk = 4.00; // aamiiin
+
+        System.out.println("Nama: " + nama);
+        System.out.println("Umur: " + umur);
+        System.out.println("IPK: " + ipk);
+    }
+}
+```
+
+### Percabangan
+
+Ini gunanya biar program kita bisa mikir dan ambil keputusan. Paling umum pakai `if-else`.
+
+```java
+int nilai = 80;
+
+if (nilai >= 75) {
+    System.out.println("Lulus");
+} else {
+    System.out.println("Tidak lulus");
+}
+```
+
+### Perulangan
+
+Kalau mau ngulang perintah, jangan manual. Pakai aja perulangan, misalnya `for`.
+
+```java
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Perulangan ke-" + i);
+}
+```
+
+### Kenalan sama OOP
+
+Java itu bahasa yang berorientasi objek (OOP). Gampangnya, kita bisa bikin "cetakan" (class) buat bikin "objek" yang punya data dan perilaku sendiri.
+
+```java
+class Mobil {
+    String merk;
+    int tahun;
+
+    Mobil(String m, int t) {
+        merk = m;
+        tahun = t;
+    }
+
+    void info() {
+        System.out.println("Mobil: " + merk + ", Tahun: " + tahun);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Mobil m1 = new Mobil("Toyota", 2020);
+        m1.info(); // Output: Mobil: Toyota, Tahun: 2020
+    }
+}
+```
+
+## Lanjut?
+
+Dasar-dasarnya udah dapet. Kalau udah paham, kita bisa lanjut ke materi inti pertama, yaitu **Linked List**.
