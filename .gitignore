@@ -12,3 +12,6 @@ pnpm-debug.log*
 teaser.pptx
 ~$teaser.pptx
 src/content/blog/.archives/
+
+# Project tracking file (keep in repo for collaboration)
+# PROJECT_PROGRESS.md
