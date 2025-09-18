@@ -7,8 +7,8 @@ export const SITE: Site = {
   href: 'https://lospipell.pages.dev',
   author: 'gper00',
   locale: 'id-ID',
-  featuredPostCount: 2,
-  postsPerPage: 3,
+  featuredPostCount: 3,
+  postsPerPage: 5,
   // keywords: 'lospipell, blog pribadi, tulisan reflektif, blog teknologi, tutorial pemrograman, pemikiran hidup, catatan pribadi, belajar koding, blog santai, pengembangan diri, blog indonesia, life reflection, belajar programming, sharing pengalaman, menulis bebas, blog mahasiswa, teknologi dan kehidupan, jurnal online, blog minimalis',
 }
 
