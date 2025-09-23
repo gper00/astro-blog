@@ -4,7 +4,7 @@ pronouns: 'he/him'
 avatar: 'https://avatars.githubusercontent.com/u/90662124?v=4'
 bio: 'A student who always tries to love studying'
 website: 'https://gper00.github.io'
-twitter: 'https://twitter.com/gper00'
+# twitter: 'https://twitter.com/username'
 github: 'https://github.com/gper00'
 mail: 'alfariziuchiha@gmail.com'
 ---
